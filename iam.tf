@@ -29,9 +29,7 @@ resource "aws_iam_group" "iam-group" {
 
 resource "aws_iam_group_membership" "iam-member" {
   name = aws_iam_group.iam-group.name
-  users = [
-    aws_iam_user.cactusea.name,
-  ]
+  users = var.iam_user_list
   group = aws_iam_group.iam-group.name
 }
 
